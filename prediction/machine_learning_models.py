@@ -3,6 +3,7 @@ import time
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from sklearn.linear_model import HuberRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import TheilSenRegressor
 from sklearn.model_selection import train_test_split
@@ -35,10 +36,20 @@ print("Execution Time: ", em_time - sm_time)
 
 # Theil-Sen Regression
 
-sm_time = time.time()
-model1 = TheilSenRegressor()
-model1.fit(X_train, y_train)
-em_time = time.time()
-print("Train Accuracy: ", model1.score(X_train, y_train))
-print("Test Accuracy: ", model1.score(X_test, y_test))
-print("Execution Time: ", em_time - sm_time)
+st_time = time.time()
+model2 = TheilSenRegressor()
+model2.fit(X_train, y_train)
+et_time = time.time()
+print("Train Accuracy: ", model2.score(X_train, y_train))
+print("Test Accuracy: ", model2.score(X_test, y_test))
+print("Execution Time: ", et_time - st_time)
+
+# Huber Regression
+
+sh_time = time.time()
+model3 = HuberRegressor()
+model3.fit(X_train, y_train)
+eh_time = time.time()
+print("Train Accuracy: ", model3.score(X_train, y_train))
+print("Test Accuracy: ", model3.score(X_test, y_test))
+print("Execution Time: ", eh_time - sh_time)
