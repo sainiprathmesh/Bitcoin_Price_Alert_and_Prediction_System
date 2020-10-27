@@ -8,3 +8,4 @@ df = df.drop(labels=['_id', 'time'], axis=1)
 sns.pairplot(df)
 
 df.corr()
+sns.heatmap(df.corr())
