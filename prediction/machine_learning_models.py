@@ -12,12 +12,12 @@ df = pd.read_csv("bitcoin_usd.csv")
 
 df = df.drop(labels=['_id', 'time'], axis=1)
 
-print(sns.pairplot(df))
+sns.pairplot(df)
 
-print(df.corr())
-print(sns.heatmap(df.corr()))
+df.corr()
+sns.heatmap(df.corr())
 
-print(plt.plot(df))
+plt.plot(df)
 
 X = df.loc[:, ['close', 'low', 'open']]
 Y = df.loc[:, 'high']
@@ -65,4 +65,4 @@ df_model = pd.DataFrame({'Model_Applied': ['Linear_Regression', 'TheilSen_Regres
                          'Execution Time': [em_time - sm_time, et_time - st_time, eh_time - sh_time]})
 
 print(df_model)
-print(df_model.plot(kind='bar', x='Model_Applied'))
+df_model.plot(kind='bar', x='Model_Applied')
