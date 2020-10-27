@@ -53,3 +53,13 @@ eh_time = time.time()
 print("Train Accuracy: ", model3.score(X_train, y_train))
 print("Test Accuracy: ", model3.score(X_test, y_test))
 print("Execution Time: ", eh_time - sh_time)
+
+# Diagram and plots
+
+df_model = pd.DataFrame({'Model_Applied': ['Linear_Regression', 'TheilSen_Regression', 'Huber_Regression'],
+                         'Accuracy': [model1.score(X_test, y_test), model2.score(X_test, y_test),
+                                      model3.score(X_test, y_test)],
+                         'Execution Time': [em_time - sm_time, et_time - st_time, eh_time - sh_time]})
+
+print(df_model)
+print(df_model.plot(kind='bar', x='Model_Applied'))
